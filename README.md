@@ -34,7 +34,7 @@ Train, deploy, and host your models on AWS.
 
 
 
-*Select Upload template file and upload the YAML file from the infrastructure folder called infra/pipeline.yml*
+*Select Upload template file and upload the YAML file from the infrastructure folder called `infra/pipeline.yml`*
 
 
 
