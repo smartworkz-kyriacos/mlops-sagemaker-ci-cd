@@ -36,7 +36,7 @@ Train, deploy, and host your models on AWS.
 
 - **Stack name:** mlpipeline
 - **Email:** Kyriacos@smartworkz.nl (to receive SNS notification)
-- **GitHub Token:** {previously generated and save locally}
+- **GitHub Token:** {previously generated and saved locally}
 - **GitHub User:** smartworkz-kyriacos
 - **GitHub Repository:** mlops-sagemaker-ci-cd
 - **Branch:** master (main)
