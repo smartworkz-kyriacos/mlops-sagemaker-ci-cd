@@ -81,6 +81,20 @@ Train, deploy, and host your models on AWS.
 
 ## 4. Use GPU and Spot instances
 
+*Modify `instance_type = "ml.p3.2xlarge"` in the `source\training.py` script*
+
+*In the `source\training.py` script uncomment these lines:*
+
+​	`	use_spot_instances = True		# Use a spot instance`
+
+​	`max_run = 300 					# Max training time`
+
+​	`	max_wait = 600 				# Max training time + spot waiting time`
+
+*Commit and push changes to your GitHub repository*
+
+*Navigate to SageMaker Training jobs, check to see Manage Spot Training Savings*
+
 
 
 ## 5. Add the training job dependencies
