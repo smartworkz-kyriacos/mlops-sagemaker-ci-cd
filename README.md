@@ -28,19 +28,19 @@ Train, deploy, and host your models on AWS.
 
 
 
-## 3. Run the pipeline
+## 3. Run the MLOps pipeline
 
 
 
-## 4. GPU and Spot instances
+## 4. Use GPU and Spot instances
 
 
 
-## 5. Training job dependencies
+## 5. Add the training job dependencies
 
 
 
-## 6. Trigger local training job
+## 6. Trigger training job from the local Git repository
 
 
 
