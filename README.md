@@ -15,8 +15,25 @@ Train, deploy, and host your models on AWS.
    1.5. Push to the main branch
 
 2. Create the MLOps pipeline
-2. Run the pipeline
-2. GPU and Spot instances
-2. Training job dependencies
-2. Trigger local training job
-2. Deploy with Lambda function
+
+   
+
+3. Run the pipeline
+
+   
+
+4. GPU and Spot instances
+
+   
+
+5. Training job dependencies
+
+   
+
+6. Trigger local training job
+
+   
+
+7. Deploy with Lambda function
+
+   
