@@ -1,6 +1,6 @@
-In this article, we list the most essential commands that one should know as a developer and become a master in handling their GitHub repositories. Beginners and experienced developers can benefit from this article.
+# Top 30 Git Commands
 
-# Top 30 Git Commands You Should Know To Become a Git Master
+In this article, we list the most essential commands that one should know as a developer and become a master in handling their GitHub repositories. Beginners and experienced developers can benefit from this article.
 
 1. Set Up Your Username and Email
 2. Cache Your Login Credentials
@@ -38,13 +38,13 @@ In this article, we list the most essential commands that one should know as a d
 The username is required to link commits with your name. It is not the same as your GitHub account username, which you use to login into your GitHub profile. You can set or update your username by using the `git config` command. The new name will automatically reflect in any future commits that you push to GitHub from the command line. If you want to hide your real name, you can use any arbitrary text as your Git username.
 
 ```
-git config --global user.name "Tara Routray"
+git config --global user.name "<Your Name>"
 ```
 
 You can also use the `git config` command to update the email address that you want to associate with your Git commits. The new email address will automatically reflect in any future commits that you push to GitHub from the command line.
 
 ```
-git config --global user.email "dev@tararoutray.com"
+git config --global user.email "<Your email>"
 ```
 
 # 2. Cache Your Login Credentials
@@ -71,7 +71,7 @@ You can add a single file to the staging area by using the `add` parameter and t
 git add somefile.js
 ```
 
-You can also add all files and directories to the staging area by providing the wildcard `.` instead of the file name.
+You can also add all files and directories to the staging area y providing the wildcard instead of the file name.
 
 ```
 git add .
@@ -87,7 +87,7 @@ git status
 
 # 6. Commit Changes With a Single Line Message or Through an Editor
 
-You can add a single line message while making a commit in your repository by using the `commit` parameter, and `-m` flag. This message should immediately follow the flag and be wrapped in quotation marks.
+You can add a single-line message while making a commit in your repository by using the `commit` parameter, and `-m` flag. This message should immediately follow the flag and be wrapped in quotation marks.
 
 ```
 git commit -m "Your short summary about the commit"
@@ -193,7 +193,7 @@ You can make changes to the most recent commit by using the `commit` parameter w
 git commit --amend -m "Updated message for the previous commit"
 ```
 
-It is also possible to make changes to the previously committed files. For instance, you have updated some files in multiple folders that you want to commit in a single snapshot, but then you forgot to add one folder to commit. Fixing this sort of error is just a matter of staging the other files or folders, and committing with the `--amend` and `--no-edit` flags.
+It is also possible to make changes to the previously committed files. For instance, you have updated some files in multiple folders that you want to commit in a single snapshot, but then you forgot to add one folder to the commit. Fixing this sort of error is just a matter of staging the other files or folders, and committing with the `--amend` and `--no-edit` flags.
 
 ```
 git add dir1
@@ -201,28 +201,28 @@ git commit# Here you forgot to add dir2 to commit, you can execute the following
 git commit --amend --no-edit
 ```
 
-The `--no-edit` flag will allow you to make the correction to your commit without altering its commit message. The final commit will then replace the incomplete one, and it will look like we have committed the changes to all updated files and folders in one snapshot.
+The `--no-edit` flag will allow you to correct your commit without altering its commit message. The final commit will then replace the incomplete one, and it will look like we have committed the changes to all updated files and folders in one snapshot.
 
 > **Alert !!! Don’t amend public commits.
 > **Correcting a local commit with amend is excellent, and you are allowed to push it to a shared repository. But you should avoid amending commits that are already public. Remember that the amended commits are completely new commits, and the previous commit will not be available on your current branch. It has the same consequence as resetting a public snapshot.
 
 # 14. Rollback Last Commit
 
-You can roll back the last commit by using the `revert` parameter. This will create a new commit, and  revert command previous commit, and add it to the current branch history.
+You can roll back the last commit by using the `revert` parameter. This will create a new commit, and revert the command previous commit, and add it to the current branch history.
 
 ```
 git revert HEAD
 ```
 
-## Revert v/s Reset
+**Revert v/s Reset**
 
 The `git revert`command only undoes a single commit. It does not move back to the previous state of a project by removing all succeeding commits, which is done when `git reset` is used.
 
-Reverting has two major benefits over resetting. First, it doesn’t alter the project history, which makes it a safe operation backward. Second, it is able to target a specific commit at any point in the history, whereas git reset can only work backwards from the current commit. For instance, if you want to undo an old commit with git reset, you would have to remove all the commits that occurred after the target commit, then re-commit all the subsequent commits. Thus, the `git revert` is a much better and safer way to undo the changes.
+Reverting has two major benefits over resetting. First, it doesn’t alter the project history, which makes it a safe operation backward. Second, it can target a specific commit at any point in history, whereas git reset can only work backward from the current commit. For instance, if you want to undo an old commit with git reset, you would have to remove all the commits that occurred after the target commit, then re-commit all the subsequent commits. Thus, the `git revert` is a much better and safer way to undo the changes.
 
 # 15. Rollback a Particular Commit
 
-You can roll back to a particular commit by using `revert` parameter and the commit ID. It will create a new commit, a copy of the provided commit ID, and add it to the current branch history.
+You can roll back to a particular commit by using the `revert` parameter and the commit ID. It will create a new commit, a copy of the provided commit ID, and add it to the current branch history.
 
 ```
 git revert 1af17e
@@ -258,7 +258,7 @@ git branch -a
 
 # 18. Delete a Branch
 
-You can delete a branch by using the `branch` parameter, `-d` flag and the name of the branch. If you’ve completed working on a branch and have merged it into the main branch, you can delete the branch without losing any history. However, if the branch hasn’t been merged, the delete command will output an error message. This safeguards you from losing access to your files.
+You can delete a branch by using the `branch` parameter, the `-d` flag, and the name of the branch. If you’ve completed working on a branch and have merged it into the main branch, you can delete the branch without losing any history. However, if the branch hasn’t been merged, the delete command will output an error message. This safeguards you from losing access to your files.
 
 ```
 git branch -d existing_branch_name
@@ -294,7 +294,7 @@ The above command will merge the specified branch into the main branch and gener
 
 # 20. Show Commit Log as Graph For Current or All Branches
 
-You can view the commit log as a graph for the current branch by using the `log` parameter and `--graph --oneline --decorate` flags. The `--graph` option will draw an ASCII graph, which represents the branch structure of the commit history. When it used in association with the `--oneline` and `--decorate` flags, it makes it easier to identify which commit belongs to which branch.
+You can view the commit log as a graph for the current branch by using the `log` parameter and `--graph --oneline --decorate` flags. The `--graph` option will draw an ASCII graph, which represents the branch structure of the commit history. When it is used in association with the `--oneline` and `--decorate` flags, it makes it easier to identify which commit belongs to which branch.
 
 ```
 git log --graph --oneline --decorate
@@ -314,7 +314,7 @@ You can abort a conflicting merge by using the `merge` parameter and the `--abor
 git merge --abort
 ```
 
-You can also use the `reset` parameter to during a merge conflict to reset the conflicted files to a stable state.
+You can also use the `reset` parameter ...during a merge conflict to reset the conflicted files to a stable state.
 
 ```
 git reset
@@ -322,7 +322,7 @@ git reset
 
 # 22. Add a Remote Repository
 
-You can add the parameters repository by using the `remote add`parameter, `<shortname>,` and the `<url>` awesomeapp repository.
+You can add the parameters repository by using the `remote add parameter, `<shortname>, ` and the `<url>` awesomeapp repository.
 
 ```
 git remote add awesomeapp https://github.com/someurl..
@@ -330,7 +330,7 @@ git remote add awesomeapp https://github.com/someurl..
 
 # 23. View Remote URLs
 
-You can view the remote  URLs by using the `remote` parameter and `-v` flag. This will list the remote connections you have to other repositories.
+You can view the remote  URLs by using the `remote` parameter and the `-v` flag. This will list the remote connections you have to other repositories.
 
 ```
 git remote -v
@@ -340,7 +340,7 @@ The above command is an interface to manage a list of remote entries that are st
 
 # 24. Get Additional Information About a Remote Repository
 
-You can get detailed information about a remote repository by using the `relikellike parameter.and the name of the remote like `origin`.
+You can get detailed information about a remote repository by using the `remote-like parameter. and the name of the remote like `origin`.
 
 ```
 git remote show origin
@@ -408,4 +408,4 @@ The above command will change the base of your branch from one commit to another
 
 Kudos! You have completed learning the top 30 commands offered by the Git CLI. Keep practicing the above-listed commands and you will be a master in managing your GitHub repositories.
 
-> If you enjoyed reading this post and have learned something new, then please give a clap, share it with your friends, and follow me to get updates for my upcoming posts. You can connect with me on [LinkedIn](https://www.linkedin.com/in/tara-prasad-routray-b83027145/).
+> If you enjoyed reading this post and have learned something new, then please give a clap, share it with your friends, and follow me to get updates for my upcoming posts. You can connect with me on [LinkedIn](https://www.linkedin.com/in/kyriacos-antoniades).
