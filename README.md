@@ -30,7 +30,7 @@ Train, deploy, and host your models on AWS.
 
 *Select Create stack*
 
-*Select Upload template file and upload the YAML file from the infrastructure folder called infrasructure/pipeline.yml*
+*Select Upload template file and upload the YAML file from the infrastructure folder called infra/pipeline.yml*
 
 *Specify the stack details. These include:*
 
