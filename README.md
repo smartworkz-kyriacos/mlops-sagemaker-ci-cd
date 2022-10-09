@@ -213,11 +213,11 @@ estimator = PyTorch(
 
 - *Navigate to SageMaker Training jobs.*
 
-![](images\sagemaker-console.png)
+![](images/sagemaker-console.png)
 
 - *Check to see Manage Spot Training Savings*
 
-![](images\spot-cost.png)
+![](images/spot-cost.png)
 
 
 
