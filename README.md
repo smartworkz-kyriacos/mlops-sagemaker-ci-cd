@@ -30,7 +30,7 @@ Train, deploy, and host your models on AWS.
 
 1. Using File Explorer navigate to the local Git Repository
 
-![](images/File explorer local Git Repository.png)
+![](images/Git-Repository.png)
 
 2. In the path field type cmd and press the Enter key
 
