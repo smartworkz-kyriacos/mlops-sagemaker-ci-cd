@@ -4,23 +4,52 @@ Train, deploy, and host your models on AWS.
 
 ## 1. Prerequisites
 
-- *Open your AWS account*
+*Open your [AWS account]()*
 
+*Open your [GitHub account]()*
 
+*Install [Visual Studio Code]() (VSC)*
 
-- *Create a GitHub repository and user token (save locally as e.g. in a text file)*
+*Install [Git Bash]()*
 
+*Configure Git Bash default for VSC*
 
+*Download the [code](), and unzip it in the local Git repository folder path*
 
-- *Clone the new GitHub repository to your local Git repository folder*
+*`cmd` File Explorer in the path field*
 
+*`code .` in the cmd window prompt with the path*
 
+*Open* your GitHub account Repositories page
 
-- *Download the code, and unzip it to the local Git repository folder*
+*Open Git Bash terminal in VSC*
 
+- #Configure global settings
 
+​		`git config — global user.name "Kyriacos Antoniades- Smartworkz"`		
 
-- *Push to the main branch*
+​		`		git config — global user.email "Kyriacos@smartworkz.nl"`
+​		`		git config — global push.default matching`
+​		`git config — global alias.co checkout`
+
+- #Check
+
+​		`git config — global user.name` 
+​		`git config — global user.email`
+
+​		`git init`
+
+​		`git status`
+
+​		`git add .`
+
+​		`git commit -m "MLOPs code remote upload from the local repository"`
+
+- *#Push to the main branch*
+
+​		`git push`
+
+*Create a GitHub  user token (save locally as e.g. in a text file)*
 
 
 
