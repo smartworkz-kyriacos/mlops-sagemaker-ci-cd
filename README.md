@@ -28,7 +28,15 @@
 
   4. Select from the dropdown, Git Bash 
 
-- *Download the [code](), and unzip it in the local Git repository folder path*. *`cmd` File Explorer in the path field*
+- <u>Either</u>, clone the GitHub repository in the local Git repository
+
+```shell
+git clone https://github.com/smartworkz-kyriacos/mlops-sagemaker-ci-cd.git
+```
+
+- **Or**, *download the [code](), and unzip it in the local Git repository folder path*. 
+
+- Then *`cmd` from File Explorer in the path field*
 
 
 1. Using File Explorer navigate to the local Git Repository
