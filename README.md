@@ -24,33 +24,32 @@ Train, deploy, and host your models on AWS.
 
 *Open Git Bash terminal in VSC*
 
-- #Configure global settings
+```
+#Configure global settings
 
-​		`git config — global user.name "Kyriacos Antoniades- Smartworkz"`		
+git config — global user.name "Kyriacos Antoniades- Smartworkz"`		
+git config — global user.email "Kyriacos@smartworkz.nl"`
+git config — global push.default matching`
+git config — global alias.co checkout`
 
-​		`		git config — global user.email "Kyriacos@smartworkz.nl"`
+#Check
 
-​		`		git config — global push.default matching`
+git config — global user.name`
+git config — global user.email`
 
-​		`git config — global alias.co checkout`
+#Initialize
 
-- #Check
+git init`
+git status`
+git add .`
+git commit -m "MLOPs code remote upload from the local repository"
+```
 
-​		`git config — global user.name`
+```
+#Push to the main branch*
 
-​		`git config — global user.email`
-
-​		`git init`
-
-​		`git status`
-
-​		`git add .`
-
-​		`git commit -m "MLOPs code remote upload from the local repository"`
-
-- *#Push to the main branch*
-
-​		`git push`
+git push
+```
 
 *Create a GitHub  user token (save locally as e.g. in a text file)*
 
