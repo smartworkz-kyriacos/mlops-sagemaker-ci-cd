@@ -2,7 +2,7 @@
 
 **Train, deploy, and host your models on AWS.**
 
-- We will now download code from an S3 bucket that we will use throughout this workshop. 
+- We will download code from an S3 bucket to use throughout this workshop. 
 - It contains image classification (MNIST) code using ConvNets based on [PyTorch examples,](https://github.com/pytorch/examples) and a CloudFormation stack. 
 - You will push this code to your GitHub repository as an initial step to create CI/CD pipeline.
 
