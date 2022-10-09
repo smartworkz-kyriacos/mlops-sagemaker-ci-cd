@@ -24,7 +24,7 @@ Train, deploy, and host your models on AWS.
 
 - *Download the [code](), and unzip it in the local Git repository folder path*. Your GitHub repository will now look similar to the one below
 
-  ​		![](images\github.png)
+  ​		![](images/github.png)
 
 - *`cmd` File Explorer in the path field*
 - *`code .` in the cmd window prompt with the path*
@@ -103,7 +103,7 @@ Password: YOUR_TOKEN
 
 - *Select Upload template file and upload the YAML file from the infrastructure folder called `infra/pipeline.yml`*
 
-![](images\02_cloudformation_create_stack.png)
+![](images/02_cloudformation_create_stack.png)
 
 - *Specify the stack details. These include:*
   - **Stack name:** mlpipeline
@@ -113,17 +113,17 @@ Password: YOUR_TOKEN
   - **GitHub Repository:** mlops-sagemaker-ci-cd
   - **Branch:** master (main)
 
-![](images\mlops_03_cloudformation_specify_stack.png)
+![](images/mlops_03_cloudformation_specify_stack.png)
 
 - *Click Next in the Configure stack options page*
 
-![](images\04_cloudformation_configure_stack.png)
+![](images/04_cloudformation_configure_stack.png)
 
 - *Acknowledge that CloudFormation might create IAM resources with custom names and click Create stack*
 
 - *You will see the stack creation which should be complete within some minutes.*
 
-![](images\06_cloudformation_create_in_progress.png)
+![](images/06_cloudformation_create_in_progress.png)
 
 ## 3. Run the MLOps pipeline
 
