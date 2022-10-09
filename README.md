@@ -12,7 +12,7 @@ Train, deploy, and host your models on AWS.
 
 *Install [Git Bash]()*
 
-*Configure Git Bash default for VSC*
+*Configure Git Bash as the default terminal for VSC*
 
 *Download the [code](), and unzip it in the local Git repository folder path*
 
