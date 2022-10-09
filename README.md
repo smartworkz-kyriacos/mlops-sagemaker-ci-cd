@@ -304,7 +304,7 @@ Now that we have a working SageMaker endpoint, we can integrate it with other AW
 
 This architecture will enable us to quickly test our endpoint through a simple `HTTP POST` request.
 
-![](images\mlops_lambda.png)
+![](images/mlops_lambda.png)
 
 - *Install Chalice*
 
@@ -322,7 +322,7 @@ pip install chalice==1.20.0
 
 - *Navigate to your [SageMaker Endpoint](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Feu-west-1.console.aws.amazon.com%2Fsagemaker%2Fhome%3Fregion%3Deu-west-1%26state%3DhashArgs%2523%252Fendpoints%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fsagemaker&forceMobileApp=0&code_challenge=MSKAxc0JJQj_CobJpfJex4TeYhURJarE2euJ8d6Jfvg&code_challenge_method=SHA-256) in the AWS console and copy the name of the endpoint*
 
-![](images\mlops_endpoint.png)
+![](images/mlops_endpoint.png)
 
 - *In the lambda\\.chalice\config.json update the value of the ENDPOINT_NAME environment variable with the name of your SageMaker endpoint*
 
