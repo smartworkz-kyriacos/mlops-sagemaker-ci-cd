@@ -29,12 +29,15 @@ Train, deploy, and host your models on AWS.
 ​		`git config — global user.name "Kyriacos Antoniades- Smartworkz"`		
 
 ​		`		git config — global user.email "Kyriacos@smartworkz.nl"`
+
 ​		`		git config — global push.default matching`
+
 ​		`git config — global alias.co checkout`
 
 - #Check
 
-​		`git config — global user.name` 
+​		`git config — global user.name`
+
 ​		`git config — global user.email`
 
 ​		`git init`
