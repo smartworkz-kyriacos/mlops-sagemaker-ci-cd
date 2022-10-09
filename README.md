@@ -162,7 +162,7 @@ Password: YOUR_TOKEN
 
 This is how your pipeline looks now:
 
-![](images\mlops_pipeline.png)
+<img src="images\mlops_pipeline.png" style="zoom:50%;" />
 
 Now that you created CI/CD pipeline, it's time to start experimenting with it.
 
