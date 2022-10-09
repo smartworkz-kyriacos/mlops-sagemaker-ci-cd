@@ -6,7 +6,7 @@
 - It contains image classification (MNIST) code using ConvNets based on [PyTorch examples,](https://github.com/pytorch/examples) and a CloudFormation stack. 
 - You will push this code to your GitHub repository as an initial step to create CI/CD pipeline.
 
-![](images\minst.png)
+![](images/minst.png)
 
 ## 1. Prerequisites
 
