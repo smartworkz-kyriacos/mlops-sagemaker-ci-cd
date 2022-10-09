@@ -28,11 +28,8 @@
 
   4. Select from the dropdown, Git Bash 
 
-- *Download the [code](), and unzip it in the local Git repository folder path*. Your GitHub repository will now look similar to the one below
+- *Download the [code](), and unzip it in the local Git repository folder path*. *`cmd` File Explorer in the path field*
 
-  ​		![](images/github.png)
-
-- *`cmd` File Explorer in the path field*
 
 1. Using File Explorer navigate to the local Git Repository
 
@@ -118,13 +115,7 @@ git push
 
    **Warning:** Treat your tokens like passwords and keep them secret. When working with the API, use tokens as environment variables instead of hardcoding them into your programs.
 
-Save locally e.g. in a text file. Will be used shortly to specify in the stack details later. Once you have a token, you can enter it instead of your password when performing Git operations over HTTPS. For example, on the command line you would enter the following:
-
-```shell
-$ git clone https://hostname/USERNAME/REPO.git
-Username: YOUR_USERNAME
-Password: YOUR_TOKEN
-```
+- Save locally e.g. in a text file. Will be used shortly to specify in the stack details later. 
 
 ## 2. Create the MLOps pipeline
 
@@ -207,9 +198,14 @@ estimator = PyTorch(
 )
 ```
 
-- *Commit and push changes to your GitHub repository*
+- *Commit and push changes to your GitHub repository*. At the Git Bash run the following commands:
 
-
+```shell
+git status
+git add .`
+git commit -m "MLOPs code remote upload from the local repository"
+git push
+```
 
 - *Navigate to SageMaker Training jobs.*
 
@@ -227,37 +223,156 @@ estimator = PyTorch(
 
 - *In the `source\training.py` script update entry_point to `entry_point="mnist.py"`*
 
+- This line will tell SageMaker to first install defined dependencies from `code/requirements.txt`, and then to upload all code inside of this folder to your container.
+
+  Your estimator should now look like this
+
+  ```shell
+  estimator = PyTorch(
+    entry_point="mnist.py",
+    source_dir="code",
+    role=role,
+    framework_version="1.4.0",
+    instance_count=2,
+    instance_type="ml.p3.2xlarge",
+    py_version="py3",
+    use_spot_instances=True,  # Use a spot instance
+    max_run=300,  # Max training time
+    max_wait=600,  # Max training time + spot waiting time
+    hyperparameters={"epochs": 14, "backend": "gloo"},
+  )
+  ```
+
+
+In order to do training with your new code, you should just commit and push changes to your GitHub repo as you did before! 
+
+Now after some minutes, in the AWS console inside SageMaker and section [Training jobs ](https://eu-west-1.console.aws.amazon.com/sagemaker/home?region=eu-west-1#/jobs) you will see the new job being executed.
+
 ## 6. Trigger training job from the local Git repository
 
-- *Create AWS Access keys*
+In this section, you will trigger training jobs from your local machine without the need to commit and push every time.
 
-- *Install AWS CLI*
+- *Use or Create [AWS Access keys](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)*
 
-- *Set up your AWS CLI*
+- *Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)*
+
+- *[Set up](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) your AWS CLI*
+
+```shell
+ aws configure
+    AWS Access Key ID [None]: enter your AWS Access Key ID
+    AWS Secret Access Key [None]: enter your AWS Secret Access Key
+    Default region name [None]: eu-west-1
+    Default output format [None]: json
+```
 
 - *Create a virtual environment inside your project*
 
+```shell
+    cd source
+    python3 -m venv venv
+    source venv/bin/activate
+```
+
 - *Install required dependencies*
 
-- *Navigate to CloudFormation service stacks*
+```
+pip install -r requirements.txt
+```
+
+- *Navigate to [CloudFormation service stacks](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Feu-west-1.console.aws.amazon.com%2Fcloudformation%2Fhome%3Fregion%3Deu-west-1%26state%3DhashArgs%2523%252Fstacks%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fcloudformation&forceMobileApp=0&code_challenge=URwODm8u3qJ-reT4-VjJK0HUS2_il02O30dEoJR9G4w&code_challenge_method=SHA-256)*
 
 - *Select the stack created earlier and go to the output section*
 
+<img src="images\output.png"  />
+
 - *Copy the ExampleLocalCommand*
+
+```shell
+python training.py arn\:aws\:iam::xxxxxxx\:role/mlops-sagemaker-role bucket-name MODEL-NAME VERSION
+```
 
 - *In the command line replace MODEL-NAME and VERSION and execute* 
 
 - *Navigate to SageMaker Training jobs, check to see Manage Spot Training Savings*
 
+![](images\spot-cost (1).png)
+
 ## 7. Deploy with Lambda function
+
+Now that we have a working SageMaker endpoint, we can integrate it with other AWS services. In this lab, you will create **API Gateway** and **Lambda function**. 
+
+This architecture will enable us to quickly test our endpoint through a simple `HTTP POST` request.
+
+![](images\mlops_lambda.png)
 
 - *Install Chalice*
 
-- *Navigate to your SageMaker Endpoint in the AWS console and copy the name of the endpoint*
+​	Go to the `lambda` folder and install `chalice`
+
+```
+pip install -r requirements-dev.txt
+```
+
+or run
+
+```
+pip install chalice==1.20.0
+```
+
+- *Navigate to your [SageMaker Endpoint](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Feu-west-1.console.aws.amazon.com%2Fsagemaker%2Fhome%3Fregion%3Deu-west-1%26state%3DhashArgs%2523%252Fendpoints%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fsagemaker&forceMobileApp=0&code_challenge=MSKAxc0JJQj_CobJpfJex4TeYhURJarE2euJ8d6Jfvg&code_challenge_method=SHA-256) in the AWS console and copy the name of the endpoint*
+
+![](images\mlops_endpoint.png)
 
 - *In the lambda\\.chalice\config.json update the value of the ENDPOINT_NAME environment variable with the name of your SageMaker endpoint*
 
+```
+{
+  "version": "2.0",
+  "app_name": "predictor",
+  "autogen_policy": false,
+  "automatic_layer": true,
+  "environment_variables": {
+    "ENDPOINT_NAME": "name-of-your-sagemaker-endpoint"
+  },
+  "stages": {
+    "dev": {
+      "api_gateway_stage": "api"
+    }
+  }
+}
+```
+
 - *Deploy the Lambda function*
 
+Let's now deploy this Lambda by running
+
+```
+chalice deploy --stage dev
+```
+
+Make sure to run this command from the `lambda` folder. If your deployment times out due to your connection, please add `--connection-timeout 360` to your command.
+
+Our Lambda function expects to receive an image in the request body. It then reshapes this image so it can be sent to our trained model. Finally, it receives response from the SageMaker endpoint and returns it to requester.
+
+As we are exposing this Lambda function through REST API `@app.route("/", methods=["POST"])`, Chalice will deploy it behind the API Gateway that will route the incoming traffic to it.
+
 - *Trigger your Lambda*
+
+Now you can trigger this Lambda function by running included bash script
+
+```
+bash post.sh
+```
+
+This script will download an image, and send a `POST` request to your Lambda. The response will contain probabilities for this image and prediction made by the deployed model.
+
+```
+{
+   "response" : {
+      "Probabilities:" : "[[-3.10787258e+01 -1.61031952e+02 -2.43714166e+00 -2.35641022e+01\n  -1.84978195e+02 -9.14689526e-02 -5.73226471e+01 -8.57289124e+01\n  -7.99111023e+01 -9.30446320e+01]]",
+      "This is your number:" : "5"
+   }
+}
+```
 
