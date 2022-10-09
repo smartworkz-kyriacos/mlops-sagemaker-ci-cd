@@ -296,7 +296,7 @@ python training.py arn\:aws\:iam::xxxxxxx\:role/mlops-sagemaker-role bucket-name
 
 - *Navigate to SageMaker Training jobs, check to see Manage Spot Training Savings*
 
-![](images\spot-cost (1).png)
+![](images/spot-cost (1).png)
 
 ## 7. Deploy with Lambda function
 
