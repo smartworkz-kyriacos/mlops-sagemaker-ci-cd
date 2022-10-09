@@ -168,11 +168,11 @@ Now that you created CI/CD pipeline, it's time to start experimenting with it.
 
 - *Navigate to the CodePipeline service*
 
-![](images\console-pipeline.png)
+<img src="images/console-pipeline.png" style="zoom:100%;" />
 
 - *Select your created pipeline*
 
-![](images\pipeline-green.png)
+![](images/pipeline-green.png)
 
 - The steps include: 
   - **Source:** pulls code every time submit changes. Can be triggered manually by clicking on the **Release change** button.
