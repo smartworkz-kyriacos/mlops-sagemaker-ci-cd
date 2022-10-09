@@ -8,7 +8,7 @@ Train, deploy, and host your models on AWS.
 
 - <a href="http://www.google.com" target="_blank">Link to Google</a>
 
-- <a href="http://example.com" target="_blank" rel="noopener">Link</a>
+- <a href="http://example.com?target=_blank" target="_blank" rel="noopener">Link</a>
 
 - Live Demo: [demo](https://example.com?target=_blank)
 
