@@ -38,11 +38,11 @@ Train, deploy, and host your models on AWS.
 
 - A cmd window opens in the repository path.
 
-![](images/windows cmd prompt.png)
+![](images/Win_Cmd-Prompt.png)
 
 - *Type `code .` in the cmd window prompt with the path*
 
-![](images/code ..png)
+![](images/code.png)
 
 - VSC opens automatically.
 
@@ -50,11 +50,11 @@ Train, deploy, and host your models on AWS.
 
 - *Open* your GitHub account Repositories page
 
-![](C:\Users\KyriacosAntoniades\OneDrive - Smartworkz\Documents\GitHub\mlops-sagemaker-ci-cd\images\full screen.png)
+![](images/Full-Screen.png)
 
 *Make sure the  Git Bash terminal is in VSC (arrange it side-by-side with the  GitHub page). *
 
-![](C:\Users\KyriacosAntoniades\OneDrive - Smartworkz\Documents\GitHub\mlops-sagemaker-ci-cd\images\git bash vsc.png)
+![](images/Git-Bash-VSC.png)
 
 Run the following commands:
 
