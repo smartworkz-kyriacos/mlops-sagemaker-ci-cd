@@ -4,13 +4,11 @@ Train, deploy, and host your models on AWS.
 
 ## 1. Prerequisites
 
-- *Open and log in to your [AWS account](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26nc2%3Dh_ct%26region%3Dus-east-1%26skipRegion%3Dtrue%26src%3Dheader-signin%26state%3DhashArgsFromTB_us-east-1_69d8e4b4ab0e37a6&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=uRVQqhamdm60rHPKKXydxDu4E3wcQICknuXn1V8seVo&code_challenge_method=SHA-256)*
-
-<a href="https://github.com/" target="_blank">GitHub account</a>
+- *Open and log in to your [AWS account](https://external.ink?to=/https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26nc2%3Dh_ct%26region%3Dus-east-1%26skipRegion%3Dtrue%26src%3Dheader-signin%26state%3DhashArgsFromTB_us-east-1_69d8e4b4ab0e37a6&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=uRVQqhamdm60rHPKKXydxDu4E3wcQICknuXn1V8seVo&code_challenge_method=SHA-256)*
 
 - *Open and log in to your [GitHub account](https://github.com/)*
 
-- If not already have done, *Install [Visual Studio Code](https://code.visualstudio.com/download) (VSC)*
+- If not already done, *Install [Visual Studio Code](https://code.visualstudio.com/download) (VSC)*
 
 - If not already done, *Install [Git Bash](https://git-scm.com/downloads)*
 
