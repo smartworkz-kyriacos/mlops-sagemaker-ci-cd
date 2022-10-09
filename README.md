@@ -12,7 +12,7 @@ Train, deploy, and host your models on AWS.
 
 - If not already done, *Install [Git Bash](https://git-scm.com/downloads)*
 
-- *Configure Git Bash as the default terminal for VSC*
+- *(Optional) Configure Git Bash as the default terminal for VSC*
 
   	1. Click View, Terminal
 
@@ -27,9 +27,36 @@ Train, deploy, and host your models on AWS.
   ​		![](images/github.png)
 
 - *`cmd` File Explorer in the path field*
-- *`code .` in the cmd window prompt with the path*
+
+1. Using File Explorer navigate to the local Git Repository
+
+![](images/File explorer local Git Repository.png)
+
+2. In the path field type cmd and press the Enter key
+
+![](images/cmd.png)
+
+- A cmd window opens in the repository path.
+
+![](images/windows cmd prompt.png)
+
+- *Type `code .` in the cmd window prompt with the path*
+
+![](images/code ..png)
+
+- VSC opens automatically.
+
+![](images/vsc.png)
+
 - *Open* your GitHub account Repositories page
-- *Open the  Git Bash terminal in VSC (arrange it side-by-side with the  GitHub page). Run the following commands:*
+
+![](C:\Users\KyriacosAntoniades\OneDrive - Smartworkz\Documents\GitHub\mlops-sagemaker-ci-cd\images\full screen.png)
+
+*Make sure the  Git Bash terminal is in VSC (arrange it side-by-side with the  GitHub page). *
+
+![](C:\Users\KyriacosAntoniades\OneDrive - Smartworkz\Documents\GitHub\mlops-sagemaker-ci-cd\images\git bash vsc.png)
+
+Run the following commands:
 
 ```shell
 #Configure global settings
