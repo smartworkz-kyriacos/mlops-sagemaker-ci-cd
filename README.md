@@ -160,20 +160,26 @@ Password: YOUR_TOKEN
 
 ## 3. Run the MLOps pipeline
 
+This is how your pipeline looks now:
+
+![](images\mlops_pipeline.png)
+
+Now that you created CI/CD pipeline, it's time to start experimenting with it.
+
 - *Navigate to the CodePipeline service*
 
-
+![](images\console-pipeline.png)
 
 - *Select your created pipeline*
 
-
+![](images\pipeline-green.png)
 
 - The steps include: 
   - **Source:** pulls code every time submit changes. Can be triggered manually by clicking on the **Release change** button.
   - **Build_and_train:** executes the `source\training.py` script. This downloads the data uploads to an S3 bucket creates a training job and deploys the model
   - **Test_Model:** executes the `source\test.py`  script that performs a basic test of the deployed model
 
-
+We will now make changes to this code in order to improve the model. The goal is to show you how you can focus on model implementation, and have CodePipeline perform training steps automatically every time you push changes to the GitHub repo.
 
 ## 4. Use GPU and Spot instances
 
@@ -184,9 +190,34 @@ Password: YOUR_TOKEN
   - ​	`max_run = 300 					# Max training time`
   - ​	`	max_wait = 600 				# Max training time + spot waiting time`
 
+- After making these changes your PyTorch estimator should be like this:
+
+```shell
+estimator = PyTorch(
+  entry_point="code/mnist.py",
+  role=role,
+  framework_version="1.4.0",
+  instance_count=2,
+  instance_type="ml.p3.2xlarge",
+  py_version="py3",
+  use_spot_instances=True,  # Use a spot instance
+  max_run=300,  # Max training time
+  max_wait=600,  # Max training time + spot waiting time
+  hyperparameters={"epochs": 14, "backend": "gloo"},
+)
+```
+
 - *Commit and push changes to your GitHub repository*
 
-- *Navigate to SageMaker Training jobs, check to see Manage Spot Training Savings*
+
+
+- *Navigate to SageMaker Training jobs.*
+
+![](images\sagemaker-console.png)
+
+- *Check to see Manage Spot Training Savings*
+
+![](images\spot-cost.png)
 
 
 
