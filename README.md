@@ -1,6 +1,6 @@
 # MLOps with CI/CD from local Git repository
 
-**Train, deploy, and host your models on AWS.**
+**A hands-on lab to train, deploy, and host your models on AWS.**
 
 - We will download code from an S3 bucket to use throughout this workshop.
 - It contains image classification (MNIST) code using ConvNets based on [PyTorch examples,](https://github.com/pytorch/examples) and a CloudFormation stack.
@@ -54,7 +54,7 @@ git clone https://github.com/smartworkz-kyriacos/mlops-sagemaker-ci-cd.git
 
 ![](images/Full-Screen.png)
 
-*Make sure the  Git Bash terminal is in VSC (arrange it side-by-side with the  GitHub page). *
+Make sure that the  Git Bash terminal is in VSC (arrange it side-by-side with the  GitHub page).
 
 ![](images/Git-Bash-VSC.png)
 
@@ -93,15 +93,25 @@ git push
 1. In the upper-right corner of any page, click your profile photo, then click **Settings**.
 
    ![Settings icon in the user bar](https://docs.github.com/assets/cb-34573/images/help/settings/userbar-account-settings.png)
-2. In the left sidebar, click **Developer settings**.![Developer settings](https://docs.github.com/assets/cb-6064/images/help/settings/developer-settings.png)
-3. In the left sidebar, click **Personal access tokens**.![Personal access tokens](https://docs.github.com/assets/cb-7169/images/help/settings/personal_access_tokens_tab.png)
-4. Click **Generate new token**.![Generate new token button](https://docs.github.com/assets/cb-6922/images/help/settings/generate_new_token.png)
-5. Give your token a descriptive name.![Token description field](https://docs.github.com/assets/cb-3880/images/help/settings/token_description.png)
+2. In the left sidebar, click **Developer settings**.
+
+   ![Developer settings](https://docs.github.com/assets/cb-6064/images/help/settings/developer-settings.png)
+3. In the left sidebar, click **Personal access tokens**.
+
+   ![Personal access tokens](https://docs.github.com/assets/cb-7169/images/help/settings/personal_access_tokens_tab.png)
+4. Click **Generate new token**.
+
+   ![Generate new token button](https://docs.github.com/assets/cb-6922/images/help/settings/generate_new_token.png)
+5. Give your token a descriptive name.
+
+   ![Token description field](https://docs.github.com/assets/cb-3880/images/help/settings/token_description.png)
 6. To give your token an expiration, select the **Expiration** drop-down menu, then click a default or use the calendar picker.![Token expiration field](https://docs.github.com/assets/cb-39847/images/help/settings/token_expiration.png)
 7. Select the scopes or permissions, you'd like to grant this token. To use your token to access repositories from the command line, select **repo**.
 
    ![Selecting token scopes](https://docs.github.com/assets/cb-43299/images/help/settings/token_scopes.gif)
-8. Click **Generate token**.![Generate token button](https://docs.github.com/assets/cb-10912/images/help/settings/generate_token.png)
+8. Click **Generate token**.
+
+   ![Generate token button](https://docs.github.com/assets/cb-10912/images/help/settings/generate_token.png)
 
    ![Newly created token](https://docs.github.com/assets/cb-31676/images/help/settings/personal_access_tokens_ghe.png)
 
@@ -156,6 +166,8 @@ Now that you created CI/CD pipeline, it's time to start experimenting with it.
 ![](images/pipeline-green.png)
 
 - The steps include:
+  ------------------
+
   - **Source:** pulls code every time submit changes. Can be triggered manually by clicking on the **Release change** button.
   - **Build_and_train:** executes the `source\training.py` script. This downloads the data uploads to an S3 bucket creates a training job and deploys the model
   - **Test_Model:** executes the `source\test.py`  script that performs a basic test of the deployed model
@@ -167,9 +179,9 @@ We will now make changes to this code in order to improve the model. The goal is
 - *Modify `instance_type = "ml.p3.2xlarge"` in the `source\training.py` script*
 - *In the `source\training.py` script uncomment these lines:*
 
-  - `	use_spot_instances = True		# Use a spot instance`
-  - `max_run = 300 					# Max training time`
-  - `	max_wait = 600 				# Max training time + spot waiting time`
+  - `use_spot_instances = True	# Use a spot instance`
+  - `max_run = 300 			# Max training time`
+  - `max_wait = 600 			# Max training time + spot waiting time`
 - After making these changes your PyTorch estimator should be like this:
 
 ```shell
@@ -232,7 +244,7 @@ In order to do training with your new code, you should just commit and push chan
 
 Now after some minutes, in the AWS console inside SageMaker and section [Training jobs ](https://eu-west-1.console.aws.amazon.com/sagemaker/home?region=eu-west-1#/jobs) you will see the new job being executed.
 
-## 6. Training job from the local Git repository
+## 6. Trigger training job from the local Git repository
 
 In this section, you will trigger training jobs from your local machine without the need to commit and push every time.
 
