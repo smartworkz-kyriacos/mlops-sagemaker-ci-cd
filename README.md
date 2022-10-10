@@ -2,42 +2,33 @@
 
 **Train, deploy, and host your models on AWS.**
 
-- We will download code from an S3 bucket to use throughout this workshop. 
-- It contains image classification (MNIST) code using ConvNets based on [PyTorch examples,](https://github.com/pytorch/examples) and a CloudFormation stack. 
-- You will push this code to your GitHub repository as an initial step to create CI/CD pipeline.
+- We will download code from an S3 bucket to use throughout this workshop.
+- It contains image classification (MNIST) code using ConvNets based on [PyTorch examples,](https://github.com/pytorch/examples) and a CloudFormation stack.
 
 ![](images/minst.png)
+
+- You will push this code to your GitHub repository as an initial step to create CI/CD pipeline.
 
 ## 1. Prerequisites
 
 - *Open and log in to your [AWS account](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26nc2%3Dh_ct%26region%3Dus-east-1%26skipRegion%3Dtrue%26src%3Dheader-signin%26state%3DhashArgsFromTB_us-east-1_69d8e4b4ab0e37a6&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=uRVQqhamdm60rHPKKXydxDu4E3wcQICknuXn1V8seVo&code_challenge_method=SHA-256)*
-
 - *Open and log in to your [GitHub account](https://github.com/)*
-
 - If not already done, *Install [Visual Studio Code](https://code.visualstudio.com/download) (VSC)*
-
 - If not already done, *Install [Git Bash](https://git-scm.com/downloads)*
-
 - *(Optional) Configure Git Bash as the default terminal for VSC*
 
-  	1. Click View, Terminal
-
+  1. Click View, Terminal
   2. After the Terminal appears, press the F1 key
-
   3. Type the following, Terminal: Select Default Profile
-
-  4. Select from the dropdown, Git Bash 
-
-- <u>Either</u>, clone the GitHub repository in the local Git repository
+  4. Select from the dropdown, Git Bash
+- **Either,** clone the GitHub repository in the local Git repository
 
 ```shell
 git clone https://github.com/smartworkz-kyriacos/mlops-sagemaker-ci-cd.git
 ```
 
-- **Or**, *download the [code](), and unzip it in the local Git repository folder path*. 
-
+- **Or**, *download the [code](), and unzip it in the local Git repository folder path*.
 - Then *`cmd` from File Explorer in the path field*
-
 
 1. Using File Explorer navigate to the local Git Repository
 
@@ -72,7 +63,7 @@ Run the following commands:
 ```shell
 #Configure global settings
 
-git config --global user.name "Kyriacos Antoniades- Smartworkz"`		
+git config --global user.name "Kyriacos Antoniades- Smartworkz"`	
 git config --global user.email "Kyriacos@smartworkz.nl"`
 git config --global push.default matching`
 git config --global alias.co checkout`
@@ -102,33 +93,25 @@ git push
 1. In the upper-right corner of any page, click your profile photo, then click **Settings**.
 
    ![Settings icon in the user bar](https://docs.github.com/assets/cb-34573/images/help/settings/userbar-account-settings.png)
-
 2. In the left sidebar, click **Developer settings**.![Developer settings](https://docs.github.com/assets/cb-6064/images/help/settings/developer-settings.png)
-
 3. In the left sidebar, click **Personal access tokens**.![Personal access tokens](https://docs.github.com/assets/cb-7169/images/help/settings/personal_access_tokens_tab.png)
-
 4. Click **Generate new token**.![Generate new token button](https://docs.github.com/assets/cb-6922/images/help/settings/generate_new_token.png)
-
 5. Give your token a descriptive name.![Token description field](https://docs.github.com/assets/cb-3880/images/help/settings/token_description.png)
-
 6. To give your token an expiration, select the **Expiration** drop-down menu, then click a default or use the calendar picker.![Token expiration field](https://docs.github.com/assets/cb-39847/images/help/settings/token_expiration.png)
-
 7. Select the scopes or permissions, you'd like to grant this token. To use your token to access repositories from the command line, select **repo**.
 
    ![Selecting token scopes](https://docs.github.com/assets/cb-43299/images/help/settings/token_scopes.gif)
-
 8. Click **Generate token**.![Generate token button](https://docs.github.com/assets/cb-10912/images/help/settings/generate_token.png)
 
    ![Newly created token](https://docs.github.com/assets/cb-31676/images/help/settings/personal_access_tokens_ghe.png)
 
    **Warning:** Treat your tokens like passwords and keep them secret. When working with the API, use tokens as environment variables instead of hardcoding them into your programs.
 
-- Save locally e.g. in a text file. Will be used shortly to specify in the stack details later. 
+- Save locally e.g. in a text file. Will be used shortly to specify in the stack details later.
 
 ## 2. Create the MLOps pipeline
 
 - *Navigate to the [CloudFormation service](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Feu-west-1.console.aws.amazon.com%2Fcloudformation%2Fhome%3Fregion%3Deu-west-1%26state%3DhashArgs%2523%252F%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fcloudformation&forceMobileApp=0&code_challenge=2wvOgJKH4gI44qKCepanh-y6BA4SLHzP7S2hxNBhcJo&code_challenge_method=SHA-256)*
-
 - *Select Create stack*
 
 ![](images/01_cloudformation.png)
@@ -152,7 +135,6 @@ git push
 ![](images/04_cloudformation_configure_stack.png)
 
 - *Acknowledge that CloudFormation might create IAM resources with custom names and click Create stack*
-
 - *You will see the stack creation which should be complete within some minutes.*
 
 ![](images/06_cloudformation_create_in_progress.png)
@@ -173,7 +155,7 @@ Now that you created CI/CD pipeline, it's time to start experimenting with it.
 
 ![](images/pipeline-green.png)
 
-- The steps include: 
+- The steps include:
   - **Source:** pulls code every time submit changes. Can be triggered manually by clicking on the **Release change** button.
   - **Build_and_train:** executes the `source\training.py` script. This downloads the data uploads to an S3 bucket creates a training job and deploys the model
   - **Test_Model:** executes the `source\test.py`  script that performs a basic test of the deployed model
@@ -183,12 +165,11 @@ We will now make changes to this code in order to improve the model. The goal is
 ## 4. Use GPU and Spot instances
 
 - *Modify `instance_type = "ml.p3.2xlarge"` in the `source\training.py` script*
-
 - *In the `source\training.py` script uncomment these lines:*
-  - ​	`	use_spot_instances = True		# Use a spot instance`
-  - ​	`max_run = 300 					# Max training time`
-  - ​	`	max_wait = 600 				# Max training time + spot waiting time`
 
+  -     `	use_spot_instances = True		# Use a spot instance`
+  -     `max_run = 300 					# Max training time`
+  -     `	max_wait = 600 				# Max training time + spot waiting time`
 - After making these changes your PyTorch estimator should be like this:
 
 ```shell
@@ -223,14 +204,10 @@ git push
 
 ![](images/spot-cost.png)
 
-
-
 ## 5. Add the training job dependencies
 
 - *In the `source\training.py` script uncomment the following line `source_dir = "code`*
-
 - *In the `source\training.py` script update entry_point to `entry_point="mnist.py"`*
-
 - This line will tell SageMaker to first install defined dependencies from `code/requirements.txt`, and then to upload all code inside of this folder to your container.
 
   Your estimator should now look like this
@@ -251,8 +228,7 @@ git push
   )
   ```
 
-
-In order to do training with your new code, you should just commit and push changes to your GitHub repo as you did before! 
+In order to do training with your new code, you should just commit and push changes to your GitHub repo as you did before!
 
 Now after some minutes, in the AWS console inside SageMaker and section [Training jobs ](https://eu-west-1.console.aws.amazon.com/sagemaker/home?region=eu-west-1#/jobs) you will see the new job being executed.
 
@@ -261,9 +237,7 @@ Now after some minutes, in the AWS console inside SageMaker and section [Trainin
 In this section, you will trigger training jobs from your local machine without the need to commit and push every time.
 
 - *Use or Create [AWS Access keys](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)*
-
 - *Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)*
-
 - *[Set up](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) your AWS CLI*
 
 ```shell
@@ -289,7 +263,6 @@ pip install -r requirements.txt
 ```
 
 - *Navigate to [CloudFormation service stacks](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Feu-west-1.console.aws.amazon.com%2Fcloudformation%2Fhome%3Fregion%3Deu-west-1%26state%3DhashArgs%2523%252Fstacks%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fcloudformation&forceMobileApp=0&code_challenge=URwODm8u3qJ-reT4-VjJK0HUS2_il02O30dEoJR9G4w&code_challenge_method=SHA-256)*
-
 - *Select the stack created earlier and go to the output section*
 
 <img src="images\output.png"  />
@@ -300,15 +273,14 @@ pip install -r requirements.txt
 python training.py arn\:aws\:iam::xxxxxxx\:role/mlops-sagemaker-role bucket-name MODEL-NAME VERSION
 ```
 
-- *In the command line replace MODEL-NAME and VERSION and execute* 
-
+- *In the command line replace MODEL-NAME and VERSION and execute*
 - *Navigate to SageMaker Training jobs, check to see Manage Spot Training Savings*
 
 ![](images/spot-cost-2.png)
 
 ## 7. Deploy with Lambda function
 
-Now that we have a working SageMaker endpoint, we can integrate it with other AWS services. In this lab, you will create **API Gateway** and **Lambda function**. 
+Now that we have a working SageMaker endpoint, we can integrate it with other AWS services. In this lab, you will create **API Gateway** and **Lambda function**.
 
 This architecture will enable us to quickly test our endpoint through a simple `HTTP POST` request.
 
@@ -316,7 +288,7 @@ This architecture will enable us to quickly test our endpoint through a simple `
 
 - *Install Chalice*
 
-​	Go to the `lambda` folder and install `chalice`
+    Go to the`lambda` folder and install `chalice`
 
 ```
 pip install -r requirements-dev.txt
@@ -383,4 +355,3 @@ This script will download an image, and send a `POST` request to your Lambda. Th
    }
 }
 ```
-
