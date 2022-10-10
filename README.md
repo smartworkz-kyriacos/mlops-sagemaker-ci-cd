@@ -11,7 +11,7 @@
 
 ## 1. Prerequisites
 
-- *Open and log in to your [AWS account](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26nc2%3Dh_ct%26region%3Dus-east-1%26skipRegion%3Dtrue%26src%3Dheader-signin%26state%3DhashArgsFromTB_us-east-1_69d8e4b4ab0e37a6&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=uRVQqhamdm60rHPKKXydxDu4E3wcQICknuXn1V8seVo&code_challenge_method=SHA-256)*
+- *Open and log in to your [AWS account](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26nc2%3Dh_ct%26region%3Dus-east-1%26skipRegion%3Dtrue%26src%3Dheader-signin%26state%3DhashArgsFromTB_us-east-1_69d8e4b4ab0e37a6&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=uRVQqhamdm60rHPKKXydxDu4E3wcQICknuXn1V8seVo&code_challenge_method=SHA-256 "_blank")*
 - *Open and log in to your [GitHub account](https://github.com/)*
 - If not already done, *Install [Visual Studio Code](https://code.visualstudio.com/download) (VSC)*
 - If not already done, *Install [Git Bash](https://git-scm.com/downloads)*
@@ -63,7 +63,7 @@ Run the following commands:
 ```shell
 #Configure global settings
 
-git config --global user.name "Kyriacos Antoniades- Smartworkz"`	
+git config --global user.name "Kyriacos Antoniades- Smartworkz"`
 git config --global user.email "Kyriacos@smartworkz.nl"`
 git config --global push.default matching`
 git config --global alias.co checkout`
@@ -122,9 +122,9 @@ git push
 
 - *Specify the stack details. These include:*
   - **Stack name:** mlpipeline
-  - **Email:** Kyriacos@smartworkz.nl (to receive SNS notification)
+  - **Email:** {Your email} (to receive SNS notification)
   - **GitHub Token:** {previously generated and saved locally}
-  - **GitHub User:** smartworkz-kyriacos
+  - **GitHub User:** {Your user id}
   - **GitHub Repository:** mlops-sagemaker-ci-cd
   - **Branch:** master (main)
 
@@ -167,9 +167,9 @@ We will now make changes to this code in order to improve the model. The goal is
 - *Modify `instance_type = "ml.p3.2xlarge"` in the `source\training.py` script*
 - *In the `source\training.py` script uncomment these lines:*
 
-  -     `	use_spot_instances = True		# Use a spot instance`
-  -     `max_run = 300 					# Max training time`
-  -     `	max_wait = 600 				# Max training time + spot waiting time`
+  - `	use_spot_instances = True		# Use a spot instance`
+  - `max_run = 300 					# Max training time`
+  - `	max_wait = 600 				# Max training time + spot waiting time`
 - After making these changes your PyTorch estimator should be like this:
 
 ```shell
@@ -232,7 +232,7 @@ In order to do training with your new code, you should just commit and push chan
 
 Now after some minutes, in the AWS console inside SageMaker and section [Training jobs ](https://eu-west-1.console.aws.amazon.com/sagemaker/home?region=eu-west-1#/jobs) you will see the new job being executed.
 
-## 6. Trigger training job from the local Git repository
+## 6.   training job from the local Git repository
 
 In this section, you will trigger training jobs from your local machine without the need to commit and push every time.
 
@@ -288,7 +288,7 @@ This architecture will enable us to quickly test our endpoint through a simple `
 
 - *Install Chalice*
 
-    Go to the`lambda` folder and install `chalice`
+  Go to the `lambda` folder and install `chalice`
 
 ```
 pip install -r requirements-dev.txt
