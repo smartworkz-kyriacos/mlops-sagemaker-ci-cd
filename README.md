@@ -63,22 +63,22 @@ Run the following commands:
 ```shell
 #Configure global settings
 
-git config --global user.name "Kyriacos Antoniades- Smartworkz"`
-git config --global user.email "Kyriacos@smartworkz.nl"`
-git config --global push.default matching`
-git config --global alias.co checkout`
+git config --global user.name "Name - Company"
+git config --global user.email "your@email.nl"
+git config --global push.default matching
+git config --global alias.co checkout
 git config --global credential.helper cache
 
 #Check
 
-git config --global user.name`
-git config --global user.email`
+git config --global user.name
+git config --global user.email
 
 #Initialize
 
-git init`
-git status`
-git add .`
+git init
+git status
+git add .
 git commit -m "MLOPs code remote upload from the local repository"
 ```
 
