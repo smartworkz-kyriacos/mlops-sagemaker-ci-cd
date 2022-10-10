@@ -1,4 +1,4 @@
-# MLOps with CI/CD on local Git repository
+# MLOps with CI/CD from local Git repository
 
 **Train, deploy, and host your models on AWS.**
 
@@ -232,7 +232,7 @@ In order to do training with your new code, you should just commit and push chan
 
 Now after some minutes, in the AWS console inside SageMaker and section [Training jobs ](https://eu-west-1.console.aws.amazon.com/sagemaker/home?region=eu-west-1#/jobs) you will see the new job being executed.
 
-## 6.   training job from the local Git repository
+## 6. Training job from the local Git repository
 
 In this section, you will trigger training jobs from your local machine without the need to commit and push every time.
 
